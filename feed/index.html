@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hashtag-Social — Feed</title>
+    <link rel="icon" href="/media/hastag-Social-logo.png" />
+    <link rel="stylesheet" href="/dist/styles.css" />
+  </head>
+
+  <body
+    class="min-h-screen text-gray-900 bg-gradient-to-br from-[#8EC5FC] via-[#A8E6CF] to-[#C9DF7C]"
+  >
+    <header class="sticky top-0 z-20 bg-white/80 backdrop-blur border-b">
+      <nav
+        class="mx-auto max-w-6xl flex items-center justify-between px-4 py-3"
+      >
+        <a href="/feed/index.html" class="flex items-center gap-3">
+          <img
+            src="/media/hastag-Social-logo.png"
+            alt="Hashtag-Social"
+            class="w-10 h-10"
+          />
+        </a>
+        <button
+          id="navToggle"
+          class="md:hidden inline-flex items-center justify-center rounded-md border px-3 py-2"
+        >
+          ☰
+        </button>
+        <ul id="navList" class="hidden md:flex items-center gap-6">
+          <li><a href="/feed/" class="text-blue-600 font-semibold">Feed</a></li>
+          <li><a href="/profile/" class="hover:text-gray-700">Profile</a></li>
+        </ul>
+      </nav>
+      <ul id="navListMobile" class="hidden md:hidden border-t bg-white">
+        <li>
+          <a href="/feed/" class="block px-4 py-3 text-blue-600 font-semibold"
+            >Feed</a
+          >
+        </li>
+        <li><a href="/profile/" class="block px-4 py-3">Profile</a></li>
+      </ul>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-8 space-y-6">
+      <section
+        class="bg-white/90 backdrop-blur rounded-2xl shadow border p-4 md:p-6"
+      >
+        <div class="relative">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search posts"
+            class="w-full rounded-full border px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+            >⌕</span
+          >
+        </div>
+      </section>
+
+      <section
+        class="bg-white/90 backdrop-blur rounded-2xl shadow border p-4 md:p-6 space-y-4"
+      >
+        <div class="flex items-center justify-between">
+          <h1 class="text-xl md:text-2xl font-semibold">Feed</h1>
+          <button
+            id="createToggle"
+            class="rounded-full border px-4 py-2 font-medium hover:bg-blue-50"
+          >
+            Create post
+          </button>
+        </div>
+        <form id="createForm" class="hidden grid gap-3 md:grid-cols-4">
+          <input
+            id="postTitle"
+            name="title"
+            type="text"
+            required
+            placeholder="Title"
+            class="md:col-span-2 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            id="postImage"
+            name="image"
+            type="url"
+            placeholder="Image URL (optional)"
+            class="md:col-span-2 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <textarea
+            id="postBody"
+            name="body"
+            required
+            minlength="3"
+            rows="3"
+            placeholder="Write something…"
+            class="md:col-span-3 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
+          <div class="md:col-span-1 flex items-end">
+            <button
+              class="w-full rounded-md bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2"
+            >
+              Post
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section
+        id="emptyState"
+        class="bg-white/90 backdrop-blur rounded-2xl shadow border p-10 text-center"
+      >
+        <div class="mx-auto w-20 h-20 rounded-xl bg-gray-200"></div>
+        <h2 class="mt-4 text-lg font-semibold">No posts yet</h2>
+        <p class="text-sm text-gray-600 mt-1">
+          Create your first post to get started.
+        </p>
+        <button
+          id="createToggleEmpty"
+          class="mt-4 inline-flex items-center justify-center rounded-full border px-5 py-2 font-medium hover:bg-blue-50"
+        >
+          Create post
+        </button>
+      </section>
+
+      <section
+        id="postsGrid"
+        class="hidden grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+      ></section>
+    </main>
+
+    <footer
+      class="fixed bottom-0 left-0 w-full border-t bg-white/70 backdrop-blur text-center p-6 text-sm text-gray-600"
+    >
+      © Hashtag-Social
+    </footer>
+
+    <script src="./feed.js"></script>
+  </body>
+</html>
